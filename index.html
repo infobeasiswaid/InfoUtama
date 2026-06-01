@@ -3,187 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BeasiswaInfoID</title>
 
-<style>
-:root {
-  --primary: #1e3a8a;
-  --secondary: #3b82f6;
-  --bg: #f8fafc;
-  --text: #1f2937;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-
-/* NAVBAR */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 50px;
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
-}
-header h1 {
-  color: var(--primary);
-}
-
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #374151;
-  font-weight: 500;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 70px 20px;
-  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-  color: white;
-}
-
-.hero h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  margin-bottom: 20px;
-}
-
-.hero input {
-  padding: 12px;
-  width: 300px;
-  border-radius: 8px;
-  border: none;
-}
-
-/* CONTAINER */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-/* FILTER */
-.filters {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.filters button {
-  padding: 8px 16px;
-  margin: 5px;
-  border-radius: 20px;
-  border: 1px solid #d1d5db;
-  background: white;
-  cursor: pointer;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 20px;
-}
-
-/* CARD */
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid #e5e7eb;
-  transition: 0.2s;
-}
-
-.card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-}
-
-.tag {
-  font-size: 12px;
-  color: var(--secondary);
-  margin-bottom: 6px;
-  display: inline-block;
-}
-
-.badge {
-  font-size: 11px;
-  background: #e0e7ff;
-  color: var(--primary);
-  padding: 3px 8px;
-  border-radius: 6px;
-  margin-left: 5px;
-}
-
-.card h3 {
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 14px;
-  margin-bottom: 15px;
-  color: #4b5563;
-}
-
-.btn {
-  background: var(--primary);
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* CONTACT */
-.contact {
-  background: white;
-  border-top: 1px solid #e5e7eb;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.contact h2 {
-  margin-bottom: 15px;
-}
-
-.contact p {
-  margin: 5px 0;
-}
-
-.contact a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #6b7280;
-  border-top: 1px solid #e5e7eb;
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header>
   <h1>BeasiswaInfoID</h1>
+
   <nav>
     <a href="#">Beranda</a>
     <a href="#">Beasiswa</a>
@@ -193,8 +23,17 @@ footer {
 
 <section class="hero">
   <h2>Portal Informasi Beasiswa</h2>
-  <p>Menyediakan informasi beasiswa dalam dan luar negeri secara terstruktur dan terpercaya</p>
-  <input type="text" id="search" placeholder="Cari beasiswa...">
+
+  <p>
+    Menyediakan informasi beasiswa dalam dan luar negeri
+    secara terstruktur dan terpercaya
+  </p>
+
+  <input
+    type="text"
+    id="search"
+    placeholder="Cari beasiswa..."
+  >
 </section>
 
 <div class="container">
@@ -205,99 +44,45 @@ footer {
     <button onclick="filterKategori('Internasional')">Internasional</button>
   </div>
 
+  
+
   <div class="grid" id="list"></div>
 
 </div>
 
-<!-- CONTACT -->
+
+
+
+
 <section class="contact" id="contact">
+
   <h2>Narahubung</h2>
-  <p>Email: <a href="mailto:beasiswadepok@gmail.com">beasiswadepok@gmail.com</a></p>
-  <p>Instagram: <a href="https://instagram.com/beasiswainfo.id" target="_blank">@beasiswainfo.id</a></p>
+
+  <p>
+    Email:
+    <a href="mailto:beasiswadepok@gmail.com">
+      beasiswadepok@gmail.com
+    </a>
+  </p>
+
+  <p>
+    Instagram:
+    <a
+      href="https://instagram.com/beasiswainfo.id"
+      target="_blank"
+    >
+      @beasiswainfo.id
+    </a>
+  </p>
+
 </section>
+
 
 <footer>
   © 2026 BeasiswaInfoID. Seluruh hak cipta dilindungi.
 </footer>
 
-<script>
-const data = [
-  {
-    nama: "LPDP",
-    kategori: "Indonesia",
-    jenjang: "S2/S3",
-    deskripsi: "Beasiswa pemerintah Indonesia untuk jenjang S2 dan S3."
-  },
-  {
-    nama: "Chevening",
-    kategori: "Internasional",
-    jenjang: "S2",
-    deskripsi: "Program beasiswa penuh dari pemerintah Inggris untuk studi S2."
-  },
-  {
-    nama: "Australia Awards",
-    kategori: "Internasional",
-    jenjang: "S2",
-    deskripsi: "Beasiswa pemerintah Australia untuk pengembangan sumber daya manusia."
-  },
-  {
-    nama: "Erasmus+",
-    kategori: "Internasional",
-    jenjang: "S2",
-    deskripsi: "Program beasiswa Uni Eropa dengan skema multi-negara."
-  },
-  {
-    nama: "KIP Kuliah",
-    kategori: "Indonesia",
-    jenjang: "S1",
-    deskripsi: "Program bantuan pendidikan untuk mahasiswa S1 dari keluarga kurang mampu dengan pembiayaan kuliah dan biaya hidup."
-  }
-];
-
-let currentFilter = "Semua";
-
-const list = document.getElementById("list");
-const search = document.getElementById("search");
-
-function render() {
-  list.innerHTML = "";
-
-  const keyword = search.value.toLowerCase();
-
-  const filtered = data.filter(item => {
-    return (
-      (currentFilter === "Semua" || item.kategori === currentFilter) &&
-      item.nama.toLowerCase().includes(keyword)
-    );
-  });
-
-  if(filtered.length === 0){
-    list.innerHTML = "<p>Data tidak ditemukan.</p>";
-    return;
-  }
-
-  filtered.forEach(item => {
-    list.innerHTML += `
-      <div class="card">
-        <span class="tag">${item.kategori}</span>
-        <span class="badge">${item.jenjang}</span>
-        <h3>${item.nama}</h3>
-        <p>${item.deskripsi}</p>
-        <a href="#" class="btn">Lihat Detail</a>
-      </div>
-    `;
-  });
-}
-
-function filterKategori(kat) {
-  currentFilter = kat;
-  render();
-}
-
-search.addEventListener("input", render);
-
-render();
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
