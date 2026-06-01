@@ -7,6 +7,39 @@ const DATABASE = {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSN6givlinQGBY_iKXPOgtEhyOIvvwfz1j5u7AUvG1JcxUcntBEDYtq3cmislvtQEUWHfgqpI0euy53/pub?gid=0&single=true&output=csv"
 };
 
+function getDriveImage(id) {
+
+  if (!id) {
+    return "https://via.placeholder.com/400x250";
+  }
+
+  return `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
+
+}
+
+function getStatusClass(status) {
+
+  if (!status) return "open";
+
+  switch(status.toLowerCase()) {
+
+    case "dibuka":
+      return "open";
+
+    case "segera dibuka":
+      return "soon";
+
+    case "ditutup":
+      return "closed";
+
+    default:
+      return "open";
+
+  }
+
+}
+
+
 /* =========================
    GLOBAL
 ========================= */
@@ -43,14 +76,15 @@ async function loadData() {
 
   } catch (error) {
 
-    console.error("Error:", error);
+  console.error("ERROR DETAIL:", error);
 
-    list.innerHTML = `
-      <p style="text-align:center;">
-        Gagal mengambil data beasiswa.
-      </p>
-    `;
-  }
+  list.innerHTML = `
+    <p style="text-align:center;color:red;">
+      Gagal mengambil data beasiswa.
+    </p>
+  `;
+
+}
 }
 
 /* =========================
@@ -143,17 +177,20 @@ function render() {
       <div class="card">
 
         <img
-          src="${item.gambar || 'https://via.placeholder.com/400x250?text=Beasiswa'}"
-          alt="${item.nama}"
-          loading="lazy"
-        >
-
+        src="${getDriveImage(item.logo)}"
+        alt="${item.nama}"
+        loading="lazy"
+        />
         <span class="tag">
           ${item.kategori || "-"}
         </span>
 
         <span class="badge">
           ${item.jenjang || "-"}
+        </span>
+
+        <span class="status ${getStatusClass(item.status)}">
+        ${item.status || "Dibuka"}
         </span>
 
         <h3>
